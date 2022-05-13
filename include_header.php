@@ -10,11 +10,11 @@
     <title>Administration des Contacts</title>
 </head>
 <body>
-<p style="color:green">
+<p style="color:red">
     <?php
     if ($_SESSION) {
         echo $_SESSION["message"];
-        unset($_SESSION["message"]);
+        $_SESSION["message"] = "";
     }
     ?>
     </p>
