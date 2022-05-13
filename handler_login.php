@@ -15,6 +15,7 @@ if (isset( $_POST['data-username'] ) && !empty( $_POST['data-username'])
 
     if ( password_verify($password, $hash['user_password']) ) {
         $_SESSION['message'] = 'Vous êtes connecté.';
+        $_SESSION['username'] = $username;
         header('Location: view_contact.php');
     }else {
         $_SESSION['message'] = 'Mot de passe invalide.';

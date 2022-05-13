@@ -1,7 +1,10 @@
 <?php include("include_header.php") ?>
 
-
 <?php
+if (!$_SESSION["username"]) {
+    $_SESSION['message'] = 'Vous n\'êtes pas connecté.';
+        header('Location: form_login.php');
+}else{
 if (isset( $_GET['contact_id'] ) && !empty( $_GET['contact_id'])) {
     $contact_id=strip_tags($_GET['contact_id']);
     require_once("db_connect.php");
@@ -22,6 +25,7 @@ if (isset( $_GET['contact_id'] ) && !empty( $_GET['contact_id'])) {
 }else {
     $_SESSION['message'] = 'URL is not valid...';
     header('Location: view_contact.php');
+}
 }
 ?>
 
